@@ -25,13 +25,17 @@ func getTwitterApi() *anaconda.TwitterApi {
 func main() {
 	loadEnv()
 
-	api := getTwitterApi()
+	api := getTwitterApi() //ここで取得した情報をapiに詰め込む
 
 	v := url.Values{}
-	v.Set("count", "30")
+	v.Set("count", "140")
 
 	searchResult, _ := api.GetSearch("#Cityzens開発記録", v)
-	for _, tweet := range searchResult.Statuses {
-			fmt.Println(tweet.Text)
+
+	//searchResultのデータ型を知りたい
+	fmt.Println(searchResult)
+	
+	for _, tweet := range searchResult.Metadata.MaxIdString { 
+			fmt.Println(tweet)
 	}
 }
