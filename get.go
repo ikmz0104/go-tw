@@ -21,6 +21,7 @@ func getTwitterApi() *anaconda.TwitterApi {
 	anaconda.SetConsumerSecret(os.Getenv("CONSUMER_SECRET"))
 	return anaconda.NewTwitterApi(os.Getenv("ACCESS_TOKEN"), os.Getenv("ACCESS_TOKEN_SECRET"))
 }
+
 func main() {
 	loadEnv()
 
